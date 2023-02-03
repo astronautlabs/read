@@ -1,5 +1,5 @@
 {
-  "name": "read",
+  "name": "@astronautlabs/read",
   "version": "2.0.0",
   "main": "dist/read.js",
   "types": "dist/read.d.ts",
