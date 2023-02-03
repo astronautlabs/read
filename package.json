@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "main": "dist/read.js",
   "types": "dist/read.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "mute-stream": "~1.0.0"
   },
@@ -25,6 +28,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -b .",
-    "test": "npm run build && node dist/test"
+    "test": "npm run build && node dist/test",
+    "prepublishOnly": "npm test"
   }
 }
