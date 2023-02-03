@@ -49,7 +49,7 @@ export interface ReadOptions {
   replace?: string;
 }
 
-export default async function read (options?: ReadOptions) {
+export default async function read (options?: ReadOptions): Promise<string> {
   let opts = { prompt: '', ...options };
   opts.input ??= process.stdin;
   opts.output ??= process.stdout;
@@ -76,7 +76,7 @@ export default async function read (options?: ReadOptions) {
   const output = new Mute({ replace: opts.replace, prompt: opts.prompt })
   output.pipe(opts.output, { end: false });
 
-  return new Promise((resolve, reject) => {
+  return new Promise<string>((resolve, reject) => {
     const rl = readline.createInterface({ input, output, terminal: opts.terminal })
     const timer = opts.timeout && setTimeout(() => onError(new Error('timed out')), opts.timeout)
 
