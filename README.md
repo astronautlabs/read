@@ -1,18 +1,16 @@
-## read
+# @/read
 
-For reading user input from stdin.
-
-Similar to the `readline` builtin's `question()` method, but with a
+For reading user input from stdin. Similar to the `readline` builtin's `question()` method, but with a
 few more features.
 
 ## Usage
 
-```javascript
-var read = require("read")
+```typescript
+import read from "@astronautlabs/read";
 try {
-  const result = await read(options, callback)
-} catch (er) {
-  console.error(er)
+  const result = await read(options)
+} catch (err) {
+  console.error(err);
 }
 ```
 

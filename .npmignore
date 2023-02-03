@@ -1,0 +1,4 @@
+src/*.test.ts
+src/fixtures.ts
+dist/*.test.js
+dist/fixtures.js

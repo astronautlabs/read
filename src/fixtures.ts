@@ -1,13 +1,12 @@
 const spawn = require('child_process').spawn
-
 const esc = (str) => str
   .replace(/\(/g, '\\(')
   .replace(/\)/g, '\\)')
 
-const spawnRead = async (filename, writes) => {
+export async function spawnRead(filename, writes) {
   const proc = spawn(process.execPath, [filename, 'child'])
 
-  return new Promise((resolve, reject) => {
+  return new Promise<{ stdout: string, stderr: string }>((resolve, reject) => {
     let stdout = ''
     let stderr = ''
 
@@ -31,5 +30,3 @@ const spawnRead = async (filename, writes) => {
     }))
   })
 }
-
-module.exports = spawnRead
